@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <title>Smart Public Transport App</title>
+    <script defer src="script.js"></script>
+    <style>
+        .payment-method-text {
+            color: #000; /* Цвет текста */
+            font-weight: bold; /* Жирный шрифт */
+        }
+    </style>
+</head>
+<body class="bg-primary text-light">
+<div class="container mt-4">
+    <header class="mb-4">
+        <h1 id="app-title" class="display-4">Smart Public Transport App</h1>
+        <select id="language-selector" class="form-control w-25" onchange="changeLanguage(event)">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="zh">中文</option>
+        </select>
+    </header>
+    <main>
+        <section id="ticket-section" class="mb-4">
+            <h2 id="ticket-title" class="h3">Buy Ticket</h2>
+            <form id="booking-form" class="mt-2" onsubmit="submitBooking(event)">
+                <label id="route-label" class="form-label"></label>
+                <select id="route" class="form-control mb-2">
+                    <option value="1">Route 1</option>
+                    <option value="2">Route 2</option>
+                </select>
+                <label id="seats-label" class="form-label"></label>
+                <input type="number" id="seats" class="form-control mb-2" min="1" value="1" required>
+                <button type="submit" class="btn btn-light">Reserve Tickets</button>
+            </form>
+            <div class="card w3-hover-shadow mt-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-1" id="payment-method">Select Payment Method</h2>
+                    <div onclick="togglePaymentOptions()" style="cursor: pointer;">
+                        <p class="card-text payment-method-text">Choose Payment Method</p>
+                    </div>
+                    <div id="payment-options" class="hidden mt-2" style="display: none;">
+                        <div id="qr-code-payment" class="mt-2">
+                            <h3 class="h5">Pay with QR Code</h3>
+                            <p>Scan the QR code to complete your payment.</p>
+                            <img src="path/to/qr-code.png" alt="QR Code" class="img-fluid w-25">
+                        </div>
+                        <div id="card-payment" class="mt-2">
+                            <h3 class="h5">Pay with Card</h3>
+                            <input type="text" placeholder="Card Number" class="form-control mb-2" required>
+                            <input type="text" placeholder="Expiry Date (MM/YY)" class="form-control mb-2" required>
+                            <input type="text" placeholder="CVV" class="form-control mb-2" required>
+                            <button id="payment-button" class="btn btn-success">Pay with Card</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="registration-section" class="mb-4">
+            <h2 class="h3">Register</h2>
+            <div class="card w3-hover-shadow">
+                <div class="card-body">
+                    <form id="registration-form" class="mt-2" onsubmit="submitRegistration(event)">
+                        <input type="text" id="username" placeholder="Username" class="form-control mb-2" required>
+                        <input type="password" id="password" placeholder="Password" class="form-control mb-2" required>
+                        <button type="submit" class="btn btn-light">Register</button>
+                    </form>
+                    <div class="mt-2">
+                        <button class="btn btn-link" onclick="login()">Login</button>
+                        <button class="btn btn-link" onclick="forgotPassword()">Forgot Password?</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<script>
+    function togglePaymentOptions() {
+        const paymentOptions = document.getElementById("payment-options");
+        paymentOptions.style.display = paymentOptions.style.display === "none" || paymentOptions.style.display === "" ? "block" : "none";
+    }
+
+    const translations = {
+        en: {
+            appTitle: "Smart Public Transport App",
+            ticketTitle: "Buy Ticket",
+            routeLabel: "Select Route:",
+            seatsLabel: "Number of Seats:",
+            paymentMethod: "Choose Payment Method",
+            qrCodePayment: "Pay with QR Code",
+            cardPayment: "Pay with Card",
+            register: "Register",
+            username: "Username",
+            password: "Password",
+            reserveTickets: "Reserve Tickets",
+            login: "Login",
+            forgotPassword: "Forgot Password?"
+        },
+        ru: {
+            appTitle: "Умное приложение общественного транспорта",
+            ticketTitle: "Купить билет",
+            routeLabel: "Выберите маршрут:",
+            seatsLabel: "Количество мест:",
+            paymentMethod: "Выберите способ оплаты",
+            qrCodePayment: "Оплатить с помощью QR-кода",
+            cardPayment: "Оплатить картой",
+            register: "Зарегистрироваться",
+            username: "Имя пользователя",
+            password: "Пароль",
+            reserveTickets: "Забронировать билеты",
+            login: "Войти",
+            forgotPassword: "Забыли пароль?"
+        },
+        zh: {
+            appTitle: "智能公共交通应用",
+            ticketTitle: "购买票",
+            routeLabel: "选择路线：",
+            seatsLabel: "座位数量：",
+            paymentMethod: "选择支付方式",
+            qrCodePayment: "使用二维码支付",
+            cardPayment: "用卡支付",
+            register: "注册",
+            username: "用户名",
+            password: "密码",
+            reserveTickets: "预订票",
+            login: "登录",
+            forgotPassword: "忘记密码？"
+        }
+    };
+
+    function changeLanguage(event) {
+        const lang = event.target.value;
+
+        document.getElementById("app-title").innerText = translations[lang].appTitle;
+        document.getElementById("ticket-title").innerText = translations[lang].ticketTitle;
+        document.getElementById("route-label").innerText = translations[lang].routeLabel;
+        document.getElementById("seats-label").innerText = translations[lang].seatsLabel;
+        document.getElementById("payment-method").innerText = translations[lang].paymentMethod;
+        document.getElementById("qr-code-payment").innerText = translations[lang].qrCodePayment;
+        document.getElementById("card-payment").innerText = translations[lang].cardPayment;
+        document.getElementById("registration-section").querySelector("h2").innerText = translations[lang].register;
+        document.getElementById("username").placeholder = translations[lang].username;
+        document.getElementById("password").placeholder = translations[lang].password;
+        document.getElementById("booking-form").querySelector("button").innerText = translations[lang].reserveTickets;
+        document.querySelector(".btn-link").innerText = translations[lang].login;
+        document.querySelectorAll(".btn-link")[1].innerText = translations[lang].forgotPassword;
+    }
+
+    function submitBooking(event) {
+        event.preventDefault();
+        alert("Tickets reserved!");
+    }
+
+    function submitRegistration(event) {
+        event.preventDefault();
+        alert("Registered successfully!");
+    }
+
+    function login() {
+        alert("Login functionality not implemented yet.");
+    }
+
+    function forgotPassword() {
+        alert("Forgot password functionality not implemented yet.");
+    }
+</script>
+</body>
+</html>

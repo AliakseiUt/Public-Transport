@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписания - Общественный транспорт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Расписания</h1>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="routes.html">Маршруты</a>
+        <a href="users.html">Пользователи</a>
+    </nav>
+</header>
+<select id="languageSelector" onchange="changeLanguage(this.value)">
+    <option value="ru">Русский</option>
+    <option value="en">English</option>
+    <option value="zh">中文</option>
+</select>
+
+<div class="container">
+    <h2>Расписание маршрутов</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Маршрут</th>
+            <th>Время отправления</th>
+            <th>Время прибытия</th>
+            <th>Частота</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Здесь будет динамическое заполнение расписаний -->
+        <tr>
+            <td>1</td>
+            <td>08:00</td>
+            <td>08:30</td>
+            <td>30 мин</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>09:00</td>
+            <td>09:30</td>
+            <td>30 мин</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer>
+    <p>&copy; 2023 Общественный транспорт</p>
+</footer>
+</body>
+</html>

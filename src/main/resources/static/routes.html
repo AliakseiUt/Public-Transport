@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маршруты - Общественный транспорт</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+<header class="bg-blue-600 text-white p-4">
+    <h1 class="text-2xl font-bold">Маршруты</h1>
+    <nav class="mt-2">
+        <a href="index.html" class="text-white hover:text-gray-200 mr-4">Главная</a>
+        <a href="schedules.html" class="text-white hover:text-gray-200 mr-4">Расписания</a>
+        <a href="users.html" class="text-white hover:text-gray-200">Пользователи</a>
+    </nav>
+</header>
+<div class="container mx-auto mt-4">
+    <select id="languageSelector" onchange="changeLanguage(this.value)" class="p-2 border border-gray-300 rounded">
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+    </select>
+    <h2 class="text-xl font-semibold mt-4">Список маршрутов</h2>
+    <table class="min-w-full mt-2 bg-white border border-gray-300">
+        <thead>
+        <tr class="bg-gray-200">
+            <th class="p-2 text-left">id</th>
+            <th class="p-2 text-left">Начальная точка</th>
+            <th class="p-2 text-left">Конечная точка</th>
+            <th class="p-2 text-left">Тип транспорта</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Здесь будет динамическое заполнение маршрутов -->
+        <tr class="border-b hover:bg-gray-100">
+            <td class="p-2">1</td>
+            <td class="p-2">Центр</td>
+            <td class="p-2">Парк</td>
+            <td class="p-2">Автобус</td>
+        </tr>
+        <tr class="border-b hover:bg-gray-100">
+            <td class="p-2">2</td>
+            <td class="p-2">Станция</td>
+            <td class="p-2">Университет</td>
+            <td class="p-2">Трамвай</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer class="bg-blue-600 text-white text-center p-4 mt-4">
+    <p>&copy; 2024 Общественный транспорт</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользователи - Общественный транспорт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <select id="languageSelector" onchange="changeLanguage(this.value)">
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+    </select>
+
+    <h1>Пользователи</h1>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="routes.html">Маршруты</a>
+        <a href="schedules.html">Расписания</a>
+    </nav>
+</header>
+<div class="container">
+    <h2>Список пользователей</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Телефон</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Здесь будет динамическое заполнение пользователей -->
+        <tr>
+            <td>1</td>
+            <td>Иван Иванов</td>
+            <td>ivan@mail.com</td>
+            <td>123-456-7890</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Анна Петрова</td>
+            <td>anna@mail.com</td>
+            <td>987-654-3210</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer>
+    <p>&copy; 2023 Общественный транспорт</p>
+</footer>
+</body>
+</html>
