@@ -1,17 +1,20 @@
 package org.example.publictransport;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Routes")
 public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRoutes;
+    private Integer idRoutes;
     private String startPoint;
     private String endPoint;
     private String transportType;

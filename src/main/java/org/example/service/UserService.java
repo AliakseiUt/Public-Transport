@@ -1,6 +1,7 @@
 package org.example.service;
 
 
+import org.example.publictransport.User;
 import org.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -14,22 +15,22 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public SecurityProperties.User createUser(SecurityProperties.User user) {
+    public User createUser(User user) {
         return userRepository.save(user);
     }
 
-    public List<SecurityProperties.User> getAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public SecurityProperties.User getUserById(Integer id) {
+    public User getUserById(Integer id) {
         return userRepository.findById(id).orElse(null);
     }
 
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);
     }
-    public void registerUser(SecurityProperties.User user) {
+    public void registerUser(User user) {
         userRepository.save(user);
     }
 }

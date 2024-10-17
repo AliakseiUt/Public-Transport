@@ -12,7 +12,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>22</java.version>
+        <java.version>17</java.version>
         <spring-boot.version>3.2.0</spring-boot.version> <!-- Оставьте актуальную версию -->
         <spring-boot.version.legacy>2.7.5</spring-boot.version.legacy> <!-- Добавлено для совместимости -->
     </properties>
@@ -63,6 +63,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version> <!-- Убедитесь, что версия актуальна -->
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -71,6 +76,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

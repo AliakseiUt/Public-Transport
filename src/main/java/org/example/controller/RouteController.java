@@ -2,6 +2,7 @@ package org.example.controller;
 
 //import org.example.publictransport.model.Route;
 //import org.example.publictransport.service.RouteService;
+import org.example.publictransport.Route;
 import org.example.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,20 +20,20 @@ public class RouteController {
     private RouteService routeService;
 
     @PostMapping
-    public ResponseEntity<RouteMatcher.Route> createRoute(@RequestBody RouteMatcher.Route route) {
-        RouteMatcher.Route createdRoute = routeService.createRoute(route);
+    public ResponseEntity<Route> createRoute(@RequestBody Route route) {
+        Route createdRoute = routeService.createRoute(route);
         return new ResponseEntity<>(createdRoute, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<RouteMatcher.Route>> getAllRoutes() {
-        List<RouteMatcher.Route> routes = routeService.getAllRoutes();
+    public ResponseEntity<List<Route>> getAllRoutes() {
+        List<Route> routes = routeService.getAllRoutes();
         return new ResponseEntity<>(routes, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RouteMatcher.Route> getRouteById(@PathVariable Integer id) {
-        RouteMatcher.Route route = routeService.getRouteById(id);
+    public ResponseEntity<Route> getRouteById(@PathVariable Integer id) {
+        Route route = routeService.getRouteById(id);
         if (route != null) {
             return new ResponseEntity<>(route, HttpStatus.OK);
         }

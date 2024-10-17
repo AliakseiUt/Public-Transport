@@ -2,6 +2,7 @@ package org.example.controller;
 
 //import org.example.publictransport.service.UserService;
 import org.example.publictransport.Payment;
+import org.example.publictransport.User;
 import org.example.service.PaymentService;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class UserController {
     private PaymentService paymentService;
 
     @PostMapping
-    public ResponseEntity<SecurityProperties.User> createUser(@RequestBody SecurityProperties.User user) {
-        SecurityProperties.User createdUser = userService.createUser(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User createdUser = userService.createUser(user);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
     @PostMapping("/pay")
@@ -32,14 +33,14 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SecurityProperties.User>> getAllUsers() {
-        List<SecurityProperties.User> users = userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SecurityProperties.User> getUserById(@PathVariable Integer id) {
-        SecurityProperties.User user;
+    public ResponseEntity<User> getUserById(@PathVariable Integer id) {
+        User user;
         user = userService.getUserById(id);
         if (user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
