@@ -27,6 +27,7 @@ public class RouteController {
 
     @GetMapping
     public ResponseEntity<List<Route>> getAllRoutes() {
+        System.out.println("ok");
         List<Route> routes = routeService.getAllRoutes();
         return new ResponseEntity<>(routes, HttpStatus.OK);
     }
