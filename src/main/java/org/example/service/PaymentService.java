@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.publictransport.Payment;
-//import org.example.publictransport.repository.PaymentRepository;
 import org.example.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

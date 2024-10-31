@@ -2,6 +2,7 @@ package org.example.controller;
 
 //import org.example.publictransport.model.Ticket;
 //import org.example.publictransport.service.TicketService;
+import lombok.AllArgsConstructor;
 import org.example.publictransport.Ticket;
 import org.example.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/tickets")
 public class TicketController {
 

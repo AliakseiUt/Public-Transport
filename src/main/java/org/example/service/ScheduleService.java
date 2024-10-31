@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.publictransport.Schedule;
-//import org.example.publictransport.repository.ScheduleRepository;
 import org.example.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

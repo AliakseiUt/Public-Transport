@@ -2,17 +2,19 @@ package org.example.controller;
 
 //import org.example.publictransport.model.Route;
 //import org.example.publictransport.service.RouteService;
+
+import lombok.AllArgsConstructor;
 import org.example.publictransport.Route;
 import org.example.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.RouteMatcher;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/routes")
 public class RouteController {
 

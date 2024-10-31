@@ -1,12 +1,13 @@
 package org.example.controller;
 
 //import org.example.publictransport.service.UserService;
+
+import lombok.AllArgsConstructor;
 import org.example.publictransport.Payment;
 import org.example.publictransport.User;
 import org.example.service.PaymentService;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
+
 @RequestMapping("/api/users")
 public class UserController {
+
 
     @Autowired
     private UserService userService; // Используйте импортированный класс

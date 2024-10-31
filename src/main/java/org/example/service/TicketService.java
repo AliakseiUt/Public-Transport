@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.publictransport.Ticket;
-//import org.example.publictransport.repository.TicketRepository;
 import org.example.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

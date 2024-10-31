@@ -5,22 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 
 @Entity
-@Table(name = "Tickets")
+@Table(name = "Users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Ticket {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTickets;
-    private int userId;
-    private int routeId;
-    private Date purchase;
-    private String qrCode;
-    private String status;
+    private int idUsers;
+
+    private String name;
+    private String email;
+    private String password;
+    private String phone;
 
     // Геттеры и сеттеры
 }

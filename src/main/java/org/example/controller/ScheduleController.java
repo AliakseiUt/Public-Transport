@@ -2,6 +2,7 @@ package org.example.controller;
 
 //import org.example.publictransport.model.Schedule;
 //import org.example.publictransport.service.ScheduleService;
+import lombok.AllArgsConstructor;
 import org.example.publictransport.Schedule;
 import org.example.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/schedules")
 public class ScheduleController {
 
