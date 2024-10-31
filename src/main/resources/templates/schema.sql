@@ -3,7 +3,7 @@
 -- -----------------------------------------------------
 -- Schema SmartTransit
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS SmartTransit;
+CREATE SCHEMA IF NOT EXISTS smartTransit;
 
 -- -----------------------------------------------------
 -- Table SmartTransit.Routes
@@ -59,15 +59,15 @@ CREATE TABLE IF NOT EXISTS SmartTransit.Tickets (
 -- -----------------------------------------------------
 -- Table SmartTransit.Users
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS SmartTransit.Users (
   idUsers INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  phone VARCHAR(20) NOT NULL,
+  phone VARCHAR(255) NOT NULL,
   PRIMARY KEY (idUsers)
 );
-
 -- -----------------------------------------------------
 -- Foreign Key Constraints
 -- -----------------------------------------------------

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Smart Public Transport App</title>
     <script defer src="script.js"></script>
     <style>
@@ -14,11 +13,11 @@
         }
     </style>
 </head>
-<body class="bg-primary text-light">
-<div class="container mt-4">
+<body class="bg-blue-500 text-white">
+<div class="container mx-auto mt-4">
     <header class="mb-4">
-        <h1 id="app-title" class="display-4">Smart Public Transport App</h1>
-        <select id="language-selector" class="form-control w-25" onchange="changeLanguage(event)">
+        <h1 id="app-title" class="text-4xl font-bold">Smart Public Transport App</h1>
+        <select id="language-selector" class="block w-1/4 mt-2 p-2 bg-white text-black" onchange="changeLanguage(event)">
             <option value="en">English</option>
             <option value="ru">Русский</option>
             <option value="zh">中文</option>
@@ -26,54 +25,50 @@
     </header>
     <main>
         <section id="ticket-section" class="mb-4">
-            <h2 id="ticket-title" class="h3">Buy Ticket</h2>
+            <h2 id="ticket-title" class="text-2xl font-semibold">Buy Ticket</h2>
             <form id="booking-form" class="mt-2" onsubmit="submitBooking(event)">
-                <label id="route-label" class="form-label"></label>
-                <select id="route" class="form-control mb-2">
+                <label id="route-label" class="block mt-2"></label>
+                <select id="route" class="block w-full mt-1 p-2 mb-2 bg-white text-black">
                     <option value="1">Route 1</option>
                     <option value="2">Route 2</option>
                 </select>
-                <label id="seats-label" class="form-label"></label>
-                <input type="number" id="seats" class="form-control mb-2" min="1" value="1" required>
-                <button type="submit" class="btn btn-light">Reserve Tickets</button>
+                <label id="seats-label" class="block mt-2"></label>
+                <input type="number" id="seats" class="block w-full mt-1 p-2 mb-2 bg-white text-black" min="1" value="1" required>
+                <button type="submit" class="bg-white text-blue-500 p-2 rounded">Reserve Tickets</button>
             </form>
-            <div class="card w3-hover-shadow mt-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-1" id="payment-method">Select Payment Method</h2>
-                    <div onclick="togglePaymentOptions()" style="cursor: pointer;">
-                        <p class="card-text payment-method-text">Choose Payment Method</p>
+            <div class="bg-white shadow-md rounded mt-4 p-4">
+                <h2 class="text-lg font-semibold mb-1" id="payment-method">Select Payment Method</h2>
+                <div onclick="togglePaymentOptions()" style="cursor: pointer;">
+                    <p class="payment-method-text">Choose Payment Method</p>
+                </div>
+                <div id="payment-options" class="hidden mt-2">
+                    <div id="qr-code-payment" class="mt-2">
+                        <h3 class="text-md font-semibold">Pay with QR Code</h3>
+                        <p>Scan the QR code to complete your payment.</p>
+                        <img src="path/to/qr-code.png" alt="QR Code" class="w-1/4">
                     </div>
-                    <div id="payment-options" class="hidden mt-2" style="display: none;">
-                        <div id="qr-code-payment" class="mt-2">
-                            <h3 class="h5">Pay with QR Code</h3>
-                            <p>Scan the QR code to complete your payment.</p>
-                            <img src="path/to/qr-code.png" alt="QR Code" class="img-fluid w-25">
-                        </div>
-                        <div id="card-payment" class="mt-2">
-                            <h3 class="h5">Pay with Card</h3>
-                            <input type="text" placeholder="Card Number" class="form-control mb-2" required>
-                            <input type="text" placeholder="Expiry Date (MM/YY)" class="form-control mb-2" required>
-                            <input type="text" placeholder="CVV" class="form-control mb-2" required>
-                            <button id="payment-button" class="btn btn-success">Pay with Card</button>
-                        </div>
+                    <div id="card-payment" class="mt-2">
+                        <h3 class="text-md font-semibold">Pay with Card</h3>
+                        <input type="text" placeholder="Card Number" class="block w-full mt-1 p-2 mb-2 bg-white text-black" required>
+                        <input type="text" placeholder="Expiry Date (MM/YY)" class="block w-full mt-1 p-2 mb-2 bg-white text-black" required>
+                        <input type="text" placeholder="CVV" class="block w-full mt-1 p-2 mb-2 bg-white text-black" required>
+                        <button id="payment-button" class="bg-green-500 text-white p-2 rounded">Pay with Card</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="registration-section" class="mb-4">
-            <h2 class="h3">Register</h2>
-            <div class="card w3-hover-shadow">
-                <div class="card-body">
-                    <form id="registration-form" class="mt-2" onsubmit="submitRegistration(event)">
-                        <input type="text" id="username" placeholder="Username" class="form-control mb-2" required>
-                        <input type="password" id="password" placeholder="Password" class="form-control mb-2" required>
-                        <button type="submit" class="btn btn-light">Register</button>
-                    </form>
-                    <div class="mt-2">
-                        <button class="btn btn-link" onclick="login()">Login</button>
-                        <button class="btn btn-link" onclick="forgotPassword()">Forgot Password?</button>
-                    </div>
+            <h2 class="text-2xl font-semibold">Register</h2>
+            <div class="bg-white shadow-md rounded mt-2 p-4">
+                <form id="registration-form" class="mt-2" onsubmit="submitRegistration(event)">
+                    <input type="text" id="username" placeholder="Username" class="block w-full mt-1 p-2 mb-2 bg-white text-black" required>
+                    <input type="password" id="password" placeholder="Password" class="block w-full mt-1 p-2 mb-2 bg-white text-black" required>
+                    <button type="submit" class="bg-white text-blue-500 p-2 rounded">Register</button>
+                </form>
+                <div class="mt-2">
+                    <button class="text-blue-500" onclick="login()">Login</button>
+                    <button class="text-blue-500" onclick="forgotPassword()">Forgot Password?</button>
                 </div>
             </div>
         </section>
@@ -127,46 +122,47 @@
             register: "注册",
             username: "用户名",
             password: "密码",
-            reserveTickets: "预订票",
-            login: "登录",
-            forgotPassword: "忘记密码？"
-        }
+            reserveTickets: "预订票"
+        },
     };
 
     function changeLanguage(event) {
         const lang = event.target.value;
-
         document.getElementById("app-title").innerText = translations[lang].appTitle;
         document.getElementById("ticket-title").innerText = translations[lang].ticketTitle;
         document.getElementById("route-label").innerText = translations[lang].routeLabel;
         document.getElementById("seats-label").innerText = translations[lang].seatsLabel;
         document.getElementById("payment-method").innerText = translations[lang].paymentMethod;
-        document.getElementById("qr-code-payment").innerText = translations[lang].qrCodePayment;
-        document.getElementById("card-payment").innerText = translations[lang].cardPayment;
-        document.getElementById("registration-section").querySelector("h2").innerText = translations[lang].register;
+        document.getElementById("qr-code-payment").querySelector('h3').innerText = translations[lang].qrCodePayment;
+        document.getElementById("card-payment").querySelector('h3').innerText = translations[lang].cardPayment;
+        document.getElementById("registration-section").querySelector('h2').innerText = translations[lang].register;
         document.getElementById("username").placeholder = translations[lang].username;
         document.getElementById("password").placeholder = translations[lang].password;
-        document.getElementById("booking-form").querySelector("button").innerText = translations[lang].reserveTickets;
-        document.querySelector(".btn-link").innerText = translations[lang].login;
-        document.querySelectorAll(".btn-link")[1].innerText = translations[lang].forgotPassword;
+        document.getElementById("booking-form").querySelector('button').innerText = translations[lang].reserveTickets;
+        document.querySelectorAll('.text-blue-500')[0].innerText = translations[lang].login;
+        document.querySelectorAll('.text-blue-500')[1].innerText = translations[lang].forgotPassword;
     }
 
     function submitBooking(event) {
         event.preventDefault();
-        //alert("Tickets reserved!");
+        // Логика отправки данных о бронировании
+        alert('Booking submitted!');
     }
 
     function submitRegistration(event) {
         event.preventDefault();
-        alert("Registered successfully!");
+        // Логика отправки данных регистрации
+        alert('Registration submitted!');
     }
 
     function login() {
-        alert("Login functionality not implemented yet.");
+        // Логика входа
+        alert('Login clicked!');
     }
 
     function forgotPassword() {
-        alert("Forgot password functionality not implemented yet.");
+        // Логика восстановления пароля
+        alert('Forgot Password clicked!');
     }
 </script>
 </body>
